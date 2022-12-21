@@ -1,38 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Rhodium+Libre&family=Roboto:wght@100;300;400;500&display=swap");
+
+:root {
+  --bgPrimary: black;
+  --bgSecondary: #0e0e0e;
+  --bgText: #fff;
+  --fgText: #777777;
+  --fgPrimary: #3f51b5;
+  --fgSecondary: yellow;
+  --borderRadius: 5px;
+}
+
+* {
+  font-family: "Rhodium Libre", serif;
+  font-size: min(4vw, 16px);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  color: var(--bgText);
+  background-color: var(--bgPrimary);
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: auto auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.balance {
+  margin: 0;
+  line-height: 1;
+  font-size: 2rem;
+  color: transparent;
+  background-image: linear-gradient(
+    to left,
+    #8e44ad,
+    #1abc9c,
+    #d35400,
+    #34495e,
+    #2980b9,
+    #f1c40f
+  );
+  -webkit-background-clip: text;
+  animation: animate 5s linear infinite;
+  -webkit-background-size: 500%;
+  background-size: 500%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes animate {
+  0% {
+    background-position: 0 100%;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 100%;
   }
 }

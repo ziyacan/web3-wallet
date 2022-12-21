@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./components/pages/Home";
+import Header from "../src/components/shared/Header/Header";
+import Footer from "../src/components/shared/Footer/Footer";
+import Web3 from "web3";
+import { Web3ReactProvider } from "@web3-react/core";
+import { Web3Provider } from '@ethersproject/providers'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+// const getLibrary = (provider) => {
+//   return new Web3(provider);
+// };
+
+const getLibrary = (provider) => {
+  const library = new Web3Provider(provider)
+  library.pollingInterval = 12000
+  return library
 }
+
+const App = () => {
+  return (
+    <Web3ReactProvider getLibrary={getLibrary}>
+      <div className="App">
+        <Header />
+        <Home />
+        <Footer />
+      </div>
+    </Web3ReactProvider>
+  );
+};
 
 export default App;
